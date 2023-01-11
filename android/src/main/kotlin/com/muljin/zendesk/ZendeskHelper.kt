@@ -126,6 +126,8 @@ try {
   }
 
   fun startChat(call: MethodCall) {
+    val toolbarTitle = call.argument<String>("toolbarTitle") ?: "Contact Us"
+    val botName = call.argument<String>("botName") ?: "Answer Bot"
     val isPreChatFormEnabled = call.argument<Boolean>("isPreChatFormEnabled") ?: true
     val isAgentAvailabilityEnabled = call.argument<Boolean>("isAgentAvailabilityEnabled") ?: true
     val isChatTranscriptPromptEnabled = call.argument<Boolean>("isChatTranscriptPromptEnabled") ?: true
@@ -141,7 +143,8 @@ try {
     val chatConfiguration = chatConfigurationBuilder.build()
 try {
   MessagingActivity.builder()
-          .withToolbarTitle("Contact Us")
+          .withToolbarTitle(toolbarTitle)
+          .withBotLabelString(botName)
           .withEngines(ChatEngine.engine())
           .show(activity, chatConfiguration)
 }catch ( e:Exception){

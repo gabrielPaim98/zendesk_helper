@@ -90,7 +90,7 @@ public class SwiftZendeskHelper: NSObject, FlutterPlugin {
         }
         // Name for Bot messages
         let messagingConfiguration = MessagingConfiguration()
-        messagingConfiguration.name = "Chat Bot"
+        messagingConfiguration.name = dictionary["botName"] as? String ?? "Answer Bot"
         
         // Chat configuration
         let chatConfiguration = ChatConfiguration()

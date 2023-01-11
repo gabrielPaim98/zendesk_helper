@@ -55,6 +55,8 @@ class Zendesk {
     bool isAgentAvailabilityEnabled = true,
     bool isChatTranscriptPromptEnabled = true,
     bool isOfflineFormEnabled = true,
+    String? botName = 'Answer Bot',
+    String? toolbarTitle = 'Contact Us',
   }) async {
     await _channel.invokeMethod<void>('startChat', {
       'isDarkTheme': isDarkTheme,
@@ -62,7 +64,9 @@ class Zendesk {
       'isPreChatFormEnabled': isPreChatFormEnabled,
       'isAgentAvailabilityEnabled': isAgentAvailabilityEnabled,
       'isChatTranscriptPromptEnabled': isChatTranscriptPromptEnabled,
-      'isOfflineFormEnabled': isOfflineFormEnabled
+      'isOfflineFormEnabled': isOfflineFormEnabled,
+      'toolbarTitle': toolbarTitle,
+      'botName': botName,
     });
   }
 
